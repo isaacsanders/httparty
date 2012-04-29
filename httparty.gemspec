@@ -8,11 +8,11 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["John Nunemaker", "Sandro Turriate"]
   s.email       = ["nunemaker@gmail.com"]
-  s.homepage    = "http://httparty.rubyforge.org/"
+  s.homepage    = "http://jnunemaker.github.com/httparty"
   s.summary     = %q{Makes http fun! Also, makes consuming restful web services dead easy.}
   s.description = %q{Makes http fun! Also, makes consuming restful web services dead easy.}
 
-  s.add_dependency 'multi_json'
+  s.add_dependency 'multi_json', "~> 1.0"
   s.add_dependency 'multi_xml'
 
   s.post_install_message = "When you HTTParty, you must party hard!"

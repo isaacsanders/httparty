@@ -93,7 +93,6 @@ module HTTParty
       @body = body
       @format = format
     end
-    private_class_method :new
 
     # @return [Object] the parsed body
     # @return [nil] when the response body is nil, an empty string, spaces only or "null"
@@ -113,7 +112,12 @@ module HTTParty
     end
 
     def json
-      MultiJson.load(body)
+      # https://github.com/sferik/rails/commit/5e62670131dfa1718eaf21ff8dd3371395a5f1cc
+      if MultiJson.respond_to?(:adapter)
+        MultiJson.load(body)
+      else
+        MultiJson.decode(body)
+      end
     end
 
     def yaml
