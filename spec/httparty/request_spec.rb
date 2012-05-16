@@ -250,7 +250,7 @@ describe HTTParty::Request do
 
     context "when setting timeout" do
       it "does nothing if the timeout option is a string" do
-        http = mock("http", :null_object => true)
+        http = mock("http").as_null_object
         http.should_not_receive(:open_timeout=)
         http.should_not_receive(:read_timeout=)
         Net::HTTP.stub(:new => http)

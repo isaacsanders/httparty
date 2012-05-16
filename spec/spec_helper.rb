@@ -1,7 +1,6 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "httparty"
 
-require 'spec/autorun'
 require 'fakeweb'
 
 def file_fixture(filename)
@@ -10,7 +9,7 @@ end
 
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
   config.include HTTParty::StubResponse
   config.include HTTParty::SSLTestHelper
 

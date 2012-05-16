@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Makes http fun! Also, makes consuming restful web services dead easy.}
   s.description = %q{Makes http fun! Also, makes consuming restful web services dead easy.}
 
+  s.add_dependency 'jruby-openssl' if defined?(JRUBY_VERSION)
   s.add_dependency 'multi_json', "~> 1.0"
   s.add_dependency 'multi_xml'
 

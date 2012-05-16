@@ -1,13 +1,13 @@
 require 'mongrel'
+require 'socket'
 require './lib/httparty'
-require 'spec/expectations'
 
 Before do
   def new_port
-    server = TCPServer.new('0.0.0.0', nil)
+    server = TCPServer.new('0.0.0.0', 3000)
     port = server.addr[1]
-  ensure
     server.close
+    return port
   end
 
   port = ENV["HTTPARTY_PORT"] || new_port
